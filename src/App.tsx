@@ -14,10 +14,10 @@ interface Book {
 
 const BookItem: React.FC<Omit<Book, 'id'>> = ({ title, description, imageUrl }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [imgSrc, setImgSrc] = useState(imageUrl || "https://via.placeholder.com/150?text=No+Cover");
+  const [imgSrc, setImgSrc] = useState(imageUrl || "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_xsINPN_63NXZ53IvJUw8mOB8Vwx1nB5SIA&s");
 
   const handleImageError = () => {
-    setImgSrc("https://via.placeholder.com/150?text=No+Cover");
+    setImgSrc("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_xsINPN_63NXZ53IvJUw8mOB8Vwx1nB5SIA&s");
   };
 
   return (
