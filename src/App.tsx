@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
-
+import { GREAT_GATSBY_COVER, NO_COVER_PLACEHOLDER } from './constants/imageConstants';
 // -- Types --
 
 interface Book {
@@ -14,10 +14,9 @@ interface Book {
 
 const BookItem: React.FC<Omit<Book, 'id'>> = ({ title, description, imageUrl }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [imgSrc, setImgSrc] = useState(imageUrl || "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_xsINPN_63NXZ53IvJUw8mOB8Vwx1nB5SIA&s");
-
+  const [imgSrc, setImgSrc] = useState(imageUrl || NO_COVER_PLACEHOLDER);
   const handleImageError = () => {
-    setImgSrc("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_xsINPN_63NXZ53IvJUw8mOB8Vwx1nB5SIA&s");
+    setImgSrc(NO_COVER_PLACEHOLDER);
   };
 
   return (
@@ -58,7 +57,7 @@ const BookList: React.FC = () => {
       id: 1,
       title: "The Great Gatsby",
       description: "A novel about the American dream and the roaring twenties.",
-      imageUrl: "https://m.media-amazon.com/images/I/71ptoyWH8dL._AC_UF1000,1000_QL80_.jpg"
+      imageUrl: GREAT_GATSBY_COVER
     },
     {
       id: 2,
