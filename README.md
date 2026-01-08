@@ -1,9 +1,3 @@
-Here is a polished, professional `README.md` file tailored for your submission. It explicitly connects your code back to the requirements in the scenario (like accessibility and error handling) to show the reviewer you hit every target.
-
-You can save this as `README.md` in your project root.
-
----
-
 # 📚 Book List Component
 
 A reusable, accessible React component designed to display a list of books with interactive features. This project demonstrates modern React practices, robust error handling, and accessibility compliance.
