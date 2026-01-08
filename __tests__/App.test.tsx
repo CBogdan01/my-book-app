@@ -1,5 +1,7 @@
+import '@testing-library/jest-dom/vitest';
 import { fireEvent, render, screen } from "@testing-library/react";
-import BookList from "./App";
+import { expect, test } from 'vitest';
+import BookList from "../src/App";
 
 test("toggles description visibility when clicked", () => {
   render(<BookList />);
