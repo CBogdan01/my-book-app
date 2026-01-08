@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import { GREAT_GATSBY_COVER, NO_COVER_PLACEHOLDER } from './constants/imageConstants';
+
 // -- Types --
 
 interface Book {
