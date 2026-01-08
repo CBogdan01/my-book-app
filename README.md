@@ -1,73 +1,105 @@
-# React + TypeScript + Vite
+Here is a polished, professional `README.md` file tailored for your submission. It explicitly connects your code back to the requirements in the scenario (like accessibility and error handling) to show the reviewer you hit every target.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+You can save this as `README.md` in your project root.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# 📚 Book List Component
 
-## React Compiler
+A reusable, accessible React component designed to display a list of books with interactive features. This project demonstrates modern React practices, robust error handling, and accessibility compliance.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 📖 Scenario Overview
 
-## Expanding the ESLint configuration
+The goal was to create a modular component that renders a list of items (books) with the following capabilities:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+* **Toggleable Details:** Users can expand or collapse book descriptions.
+* **Dynamic List Updates:** A "Add New Book" feature that instantly updates the UI.
+* **Robust Error Handling:** Gracefully handles missing data (descriptions) and broken image URLs.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## ✨ Key Features
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### 1. Reusable Component Architecture
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+The solution is split into two functional components:
+
+* 
+**`BookList`**: Manages the application state (list of books) and handles the logic for adding new items.
+
+
+* 
+**`BookItem`**: A stateless presentation component that accepts `title`, `description`, and `imageUrl` as props.
+
+
+
+### 2. State Management
+
+* Uses `useState` to manage the visibility of the description text locally within each card.
+
+
+* Uses `useState` in the parent component to manage the list of books in memory (no external database required).
+
+
+
+### 3. Graceful Error Handling
+
+* 
+**Images:** If an image URL is invalid or fails to load, the component automatically detects the error via the `onError` event and swaps the broken image for a clean, styled "No Cover" placeholder.
+
+
+* 
+**Text:** If a description is missing from the props, a default "No description available" message is displayed.
+
+
+
+### 4. Accessibility (WCAG Standards)
+
+* 
+**Screen Readers:** The toggle button uses `aria-expanded` to inform assistive technology whether the content is currently expanded or collapsed.
+
+
+* **Keyboard Navigation:** Native `<button>` elements are used for all interactions, ensuring full keyboard support.
+* **Semantic HTML:** The structure uses `<article>`, `<header>`, and `<h3>` tags to maintain a logical document hierarchy.
+* **Contrast:** Text colors are explicitly set to ensure readability against the background, regardless of user system themes.
+
+## 🚀 How to Run
+
+This project was built with **Vite** and **TypeScript**.
+
+1. **Install Dependencies:**
+```bash
+npm install
+
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+2. **Start the Development Server:**
+```bash
+npm run dev
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
 ```
+
+
+3. **Run Tests:**
+```bash
+npm test
+
+```
+
+
+
+## 🧪 Testing
+
+A unit test is included using **Jest** and **React Testing Library**.
+
+* **Scope:** The test verifies the interactive functionality of the component.
+* 
+**Scenario:** It asserts that the description is hidden by default, becomes visible when the "Show Description" button is clicked, and correctly updates the button text.
+
+
+
+## 🛠️ Technologies
+
+* **React (Functional Components + Hooks)**
+* **TypeScript** (For type safety and interfaces)
+* **CSS3** (Flexbox, Responsive Grid)
+* **Jest / React Testing Library**
